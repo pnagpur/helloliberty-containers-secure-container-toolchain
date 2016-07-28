@@ -1,0 +1,62 @@
+#################################################################################
+# Bluemix services enablement
+#################################################################################
+
+ENABLE_SERVICEDISCOVERY=false
+ENABLE_MESSAGEHUB=false
+
+#################################################################################
+# Image names
+#################################################################################
+
+HELLO_LIBERTY_V1_IMAGE=a8-examples-helloliberty-sidecar:v1
+HELLO_LIBERTY_V2_IMAGE=a8-examples-helloliberty-sidecar:v2
+GATEWAY_IMAGE=a8-sidecar:latest
+#CONTROLLER_IMAGE=a8-controller:0.1-bluemix
+#REGISTRY_IMAGE=a8-registry:0.1-bluemix
+
+#################################################################################
+# Image registries
+#################################################################################
+
+BLUEMIX_REGISTRY_HOST=registry.ng.bluemix.net
+BLUEMIX_REGISTRY_NAMESPACE=priya
+DOCKERHUB_NAMESPACE=amalgam8
+
+#################################################################################
+# Routes
+#################################################################################
+
+ROUTES_DOMAIN=mybluemix.net
+
+HELLO_LIBERTY_HOSTNAME=priya-a8-liberty
+HELLO_LIBERTY_URL=https://${HELLO_LIBERTY_HOSTNAME}.${ROUTES_DOMAIN}
+#################################################################################
+# Misc
+#################################################################################
+
+### Please change these to sensible values as your app and controller will be public.
+### Note: when overiding these values, set the A8_TENANT_ID/A8_TOKEN environment variables,
+### or set the --a8-tenant-id/--a8-token flags for the a8ctl utility.
+CONTROLLER_TENANT_ID=local
+CONTROLLER_TENANT_TOKEN=local
+#BLUEMIX_SPACE=`cf target | grep Space | awk '{print $2}'`
+#CONTROLLER_TENANT_ID=`cf space ${BLUEMIX_SPACE} --guid`
+#CONTROLLER_TENANT_TOKEN=`cat ~/.cf/config.json | grep bearer | cut -d "\"" -f 4 | cut -d " " -f 2`
+
+CONTROLLER_HOSTNAME=priya-a8-controller
+REGISTRY_HOSTNAME=priya-a8-registry
+
+A8_CONTROLLER_URL=https://${CONTROLLER_HOSTNAME}.${ROUTES_DOMAIN}
+A8_REGISTRY_URL=https://${REGISTRY_HOSTNAME}.${ROUTES_DOMAIN}
+
+#################################################################################
+# Misc
+#################################################################################
+
+### Please change these to sensible values as your app and controller will be public.
+### Note: when overiding these values, set the A8_CONTROLLER_TOKEN/A8_REGISTRY_TOKEN environment variables,
+### or set the --a8-token/--a8-registry-token flags for the a8ctl utility.
+# CONTROLLER_TENANT_ID=local ##Do not use for 0.2.0
+A8_TENANT_TOKEN=local
+A8_REGISTRY_TOKEN=local
